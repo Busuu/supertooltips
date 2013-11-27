@@ -28,6 +28,9 @@ public class ToolTip {
     private View contentView;
     private int animationType;
     private boolean shadow;
+    private int mMasterViewHorizontalPadding;
+    private int mMasterViewVerticalPadding;
+    private int mTextAppearance;
 
     /**
      * Creates a new ToolTip without any values.
@@ -41,8 +44,9 @@ public class ToolTip {
     }
 
     /**
-     * Set the text to show. Has no effect when a content View is set using setContentView().
-     *
+     * Set the text to show. Has no effect when a content View is set using
+     * setContentView().
+     * 
      * @return this ToolTip to build upon.
      */
     public ToolTip withText(CharSequence text) {
@@ -52,8 +56,9 @@ public class ToolTip {
     }
 
     /**
-     * Set the text resource id to show. Has no effect when a content View is set using setContentView().
-     *
+     * Set the text resource id to show. Has no effect when a content View is
+     * set using setContentView().
+     * 
      * @return this ToolTip to build upon.
      */
     public ToolTip withText(int resId) {
@@ -64,7 +69,7 @@ public class ToolTip {
 
     /**
      * Set the color of the ToolTop. Default is white.
-     *
+     * 
      * @return this ToolTip to build upon.
      */
     public ToolTip withColor(int color) {
@@ -73,8 +78,9 @@ public class ToolTip {
     }
 
     /**
-     * Set a custom content View for the ToolTip. This will cause any text that has been set to be ignored.
-     *
+     * Set a custom content View for the ToolTip. This will cause any text that
+     * has been set to be ignored.
+     * 
      * @return this ToolTip to build upon.
      */
     public ToolTip withContentView(View view) {
@@ -83,8 +89,10 @@ public class ToolTip {
     }
 
     /**
-     * Set the animation type for the ToolTip. One of ANIMATIONTYPE_FROMMASTERVIEW and ANIMATIONTYPE_FROMTOP. Default ANIMATIONTYPE_FROMMASTERVIEW.
-     *
+     * Set the animation type for the ToolTip. One of
+     * ANIMATIONTYPE_FROMMASTERVIEW and ANIMATIONTYPE_FROMTOP. Default
+     * ANIMATIONTYPE_FROMMASTERVIEW.
+     * 
      * @return this ToolTip to build upon.
      */
     public ToolTip withAnimationType(int animationType) {
@@ -94,11 +102,26 @@ public class ToolTip {
 
     /**
      * Set whether to show a shadow below the ToolTip.
-     *
+     * 
      * @return this ToolTip to build upon.
      */
     public ToolTip withShadow(boolean shadow) {
         this.shadow = shadow;
+        return this;
+    }
+
+    public ToolTip withMasterViewHorizontalPadding(int padding) {
+        this.mMasterViewHorizontalPadding = padding;
+        return this;
+    }
+
+    public ToolTip withMasterViewVerticalPadding(int padding) {
+        this.mMasterViewVerticalPadding = padding;
+        return this;
+    }
+
+    public ToolTip withTextAppearance(int textSize) {
+        this.mTextAppearance = textSize;
         return this;
     }
 
@@ -125,4 +148,17 @@ public class ToolTip {
     public boolean getShadow() {
         return shadow;
     }
+
+    public int getMasterViewHorizontalPadding() {
+        return mMasterViewHorizontalPadding;
+    }
+
+    public int getMasterViewVerticalPadding() {
+        return mMasterViewVerticalPadding;
+    }
+
+    public int getTextAppearance() {
+        return mTextAppearance;
+    }
+
 }
